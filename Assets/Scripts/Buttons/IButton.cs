@@ -4,7 +4,7 @@ using UnityEngine;
 
 public interface IButton
 {
-    public ISet<Button> connectedButtons(); // Returns set of buttons connected to this one including it
+    public ISet<IButton> connectedButtons(); // Returns set of buttons connected to this one including it
     public int earnings(); // Retruns value of button press
     public void disconnect(); // Disconnects this button from the others
     public bool mergeable(IButton b); // Returns if two buttons are mergable

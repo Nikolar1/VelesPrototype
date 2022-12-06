@@ -7,9 +7,9 @@ public class Button : MonoBehaviour, IButton
     public ButtonStats baseStats;
     public bool placed;
 
-    public ISet<Button> connectedButtons()
+    public ISet<IButton> connectedButtons()
     {
-        HashSet<Button> buttons = new HashSet<Button>();
+        HashSet<IButton> buttons = new HashSet<IButton>();
         foreach (var b in baseStats.conneceted)
         {
             buttons.Add(b);
