@@ -5,5 +5,5 @@ using UnityEngine;
 public class ButtonStats : ScriptableObject
 {
     public int tier;
-    public ISet<IButton> conneceted;
+    public ISet<Button> conneceted;
 }
