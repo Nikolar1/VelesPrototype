@@ -6,7 +6,6 @@ public class Button : MonoBehaviour, IButton
 {
     public ButtonStats baseStats;
 
-
     public ISet<IButton> connectedButtons()
     {
         throw new System.NotImplementedException();
@@ -30,7 +29,14 @@ public class Button : MonoBehaviour, IButton
     {
         throw new System.NotImplementedException();
     }
+    public void move(Touch touch, Vector3 offset, float distance) {
+        
+        Vector3 vector = new Vector3(touch.position.x,distance,touch.position.y);
+        vector = Camera.main.ScreenToWorldPoint(vector);
+        gameObject.transform.position = vector + offset;
+        
 
+    }
     // Start is called before the first frame update
     void Start()
     {

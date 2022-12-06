@@ -9,4 +9,5 @@ public interface IButton
     public void disconnect(); // Disconnects this button from the others
     public bool mergeable(IButton b); // Returns if two buttons are mergable
     public bool isPlaced(); // Is it placed on the board
+    public void move(Touch touch, Vector3 offset, float distance);
 }
