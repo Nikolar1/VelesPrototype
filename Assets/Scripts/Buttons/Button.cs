@@ -5,29 +5,43 @@ using UnityEngine;
 public class Button : MonoBehaviour, IButton
 {
     public ButtonStats baseStats;
+    public bool placed;
 
-    public ISet<IButton> connectedButtons()
+    public ISet<Button> connectedButtons()
     {
-        throw new System.NotImplementedException();
+        HashSet<Button> buttons = new HashSet<Button>();
+        foreach (var b in baseStats.conneceted)
+        {
+            buttons.Add(b);
+        }
+        return buttons;
     }
 
     public int earnings() {
-        throw new System.NotImplementedException();
+        return baseStats.tier * 2;
     }
 
     public void disconnect()
     {
-        throw new System.NotImplementedException();
+        foreach (var b in baseStats.conneceted)
+        {
+            b.baseStats.conneceted.Remove(this);
+        }
+        baseStats.conneceted.Clear();
     }
 
     public bool isPlaced()
     {
-        throw new System.NotImplementedException();
+        return placed;
     }
 
     public bool mergeable(IButton b)
     {
-        throw new System.NotImplementedException();
+        if (baseStats.tier == (b.earnings() / 2))
+        {
+            return true;
+        }
+        return false;
     }
     public void move(Touch touch, Vector3 offset, float distance) {
         
