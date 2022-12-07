@@ -45,21 +45,16 @@ public class Button : MonoBehaviour, IButton
     }
     public void move(Touch touch, Vector3 offset, float distance) {
         
-        Vector3 vector = new Vector3(touch.position.x,distance,touch.position.y);
+        Vector3 vector = new Vector3(touch.position.x, touch.position.y, distance);
         vector = Camera.main.ScreenToWorldPoint(vector);
-        gameObject.transform.position = vector + offset;
         
+        //vector.x = transform.position.x- vector.x + transform.position.x;
+        //offset.x = -offset.x;
+        Vector3 temp = (vector + offset);
+        //temp.x = transform.position.x-temp.x + transform.position.x;
+        //temp.z = -temp.z;
+        gameObject.transform.position = temp;
 
     }
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
 }

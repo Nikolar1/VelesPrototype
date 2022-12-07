@@ -18,13 +18,12 @@ public class InputHandler : MonoBehaviour
         //Check if a button is already being dragged
         if (selectedButton != null)
         {
-            
             if (Input.touchCount == 1)
             {
                 Touch touch = Input.GetTouch(0);
                 if (touch.phase == TouchPhase.Moved)
                 {
-                    Debug.Log("sadas");
+                    
                     selectedButton.move(touch,offset,distance);
                 }
 
@@ -45,14 +44,14 @@ public class InputHandler : MonoBehaviour
                 if (hit.transform.tag == "button")
                 {
                     distance = this.transform.position.y - Camera.main.transform.position.y;
-                    Vector3 vector = new Vector3(touch.position.x, distance, touch.position.y);
+                    Vector3 vector = new Vector3(touch.position.x, touch.position.y, distance);
                     vector = Camera.main.ScreenToWorldPoint(vector);
                     offset = hit.collider.gameObject.transform.position - vector;
                     return hit.collider.GetComponent<IButton>();
                 }
             }
         }
-        return null;
+        return selectedButton;
     }
 
 }
