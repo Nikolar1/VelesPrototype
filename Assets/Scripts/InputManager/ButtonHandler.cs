@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class ButtonHandler : MonoBehaviour
 {
-    void InstantiateNewObject()
+    public GameObject buttonToCreate;
+    public void InstantiateNewObject()
     {
-        GameObject cube = new GameObject("NewItem");
 
-        Instantiate(cube, new Vector3(0f, 0f, 0f), Quaternion.identity);
+        Instantiate(buttonToCreate, new Vector3(-3.44f, -1f, -9.07f), Quaternion.identity);
     }
 }
